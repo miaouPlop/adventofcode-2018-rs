@@ -13,12 +13,8 @@ pub mod advent {
         Ok(frequencies)
     }
     
-    pub fn run(input: Option<&String>) -> Result<(), Box<dyn Error>> {
-        if input.is_none() {
-            return Err("No input given!".into());
-        }
-    
-        let frequencies: Vec<i32> = get_frequencies(input.unwrap())?;
+    pub fn run(input: &str) -> Result<(), Box<dyn Error>> {
+        let frequencies: Vec<i32> = get_frequencies(input)?;
     
         println!("Freq is: {}", frequencies.iter().sum::<i32>());
     

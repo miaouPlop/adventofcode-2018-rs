@@ -21,15 +21,16 @@ use advlib::*;
 fn main() -> Result<(), Box<dyn Error>> {
     let args: Vec<String> = env::args().collect();
 
-    if args.len() < 2 {
-        return Err("Usage: ./advent <day> [input]".into());
+    if args.len() < 3 {
+        return Err("Usage: ./advent <day> <input>".into());
     }
 
     let day = args.get(1).unwrap().as_str();
-    let input = args.get(2);
+    let input = args.get(2).unwrap().as_str();
 
     match day {
         "day1" => adv1(input),
+        "day2" => adv2(input),
         _ => {
             Ok(())
         }
